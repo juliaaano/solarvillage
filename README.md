@@ -1,4 +1,9 @@
-# Solar Village Model
+# Solar Village
 
-Data model classes for the Solar Village project.
+Homework assignment lab on Red Hat Process Automation - RHPAM.
 
+## How to run
+
+```
+docker-compose run sollarvillage
+```
