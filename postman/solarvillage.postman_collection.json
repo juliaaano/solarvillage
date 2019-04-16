@@ -208,7 +208,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n    \"newOrder\": {\n        \"com.juliaaano.solarvillage.model.NewOrder\": {\n            \"member\": \"John\",\n            \"address\": \"1 Drive Rd.\",\n            \"hoa\": true\n        }\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/processes/solarvillage-kie.new-order-permitting/instances",

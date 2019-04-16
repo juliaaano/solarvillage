@@ -10,7 +10,7 @@ docker-compose up --force-recreate solarvillage
 
 Check the following:
 * http://localhost:18080/docs/
-* http://localhost:18080/rest/server
+* http://localhost:18080/services/rest/server
 
 ### End to end tests
 
