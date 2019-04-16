@@ -26,7 +26,6 @@ services:
     command: run solarvillage.postman_collection.json --environment=docker.postman_environment.json
     depends_on:
       - solarvillage
-      - mockserver
     volumes:
       - type: bind
         source: ./postman

@@ -2,11 +2,12 @@
 FROM maven:3-jdk-8-slim as builder
 
 COPY solarvillage-model/pom.xml /build/solarvillage-model/
-RUN mvn --file build/solarvillage-model/pom.xml --batch-mode clean
-RUN mvn --file build/solarvillage-model/pom.xml --batch-mode install
+RUN mvn --file build/solarvillage-model/pom.xml --batch-mode dependency:go-offline
+RUN mvn --file build/solarvillage-model/pom.xml --batch-mode install -DskipTests
 
 COPY solarvillage-kie/pom.xml /build/solarvillage-kie/
-RUN mvn --file build/solarvillage-kie/pom.xml --batch-mode install
+RUN mvn --file build/solarvillage-model/pom.xml --batch-mode dependency:go-offline
+RUN mvn --file build/solarvillage-kie/pom.xml --batch-mode install -DskipTests
 
 COPY solarvillage-model/src /build/solarvillage-model/src/
 COPY solarvillage-kie/src /build/solarvillage-kie/src/
