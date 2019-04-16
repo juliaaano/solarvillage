@@ -1,12 +1,19 @@
 package com.juliaaano.solarvillage.model;
 
-public class NewOrder {
+public class NewOrder implements java.io.Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String member;
 
     private String address;
 
     private boolean hoa;
+
+    @Override
+    public String toString() {
+        return "{" + " member='" + member + "'" + ", address='" + address + "'" + ", hoa='" + hoa + "'" + "}";
+    }
 
     public String getMember() {
         return member;
