@@ -2,8 +2,10 @@
 
 Homework assignment lab on Red Hat Process Automation - RHPAM.
 
-## How to run
+## Quick Start
 
 ```
-docker-compose run sollarvillage
+docker-compose up --force-recreate solarvillage
 ```
+
+Open http://localhost:18080/docs/

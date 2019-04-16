@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  solarvillage:
+    image: juliaaano/solarvillage:1.0.0-SNAPSHOT
+    environment:
+      KIE_ADMIN_USER: user
+      KIE_ADMIN_PWD: password
+    ports:
+      - target: 8080
+        published: 18080
+      # - target: 8443
+      #   published: 18443
+      # - target: 8778
+      #   published: 18778
+      # - target: 8888
+      #   published: 18888
+    depends_on:
+      - mockserver
+
+  mockserver:
+    image: jamesdbloom/mockserver:mockserver-5.5.1
+
+  
