@@ -21,4 +21,13 @@ services:
   mockserver:
     image: jamesdbloom/mockserver:mockserver-5.5.1
 
-  
+  postman:
+    image: postman/newman:ubuntu
+    command: run solarvillage.postman_collection.json --environment=docker.postman_environment.json
+    depends_on:
+      - solarvillage
+      - mockserver
+    volumes:
+      - type: bind
+        source: ./postman
+        target: /etc/newman
