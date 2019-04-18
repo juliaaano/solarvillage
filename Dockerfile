@@ -6,7 +6,7 @@ RUN mvn --file build/solarvillage-model/pom.xml --batch-mode dependency:go-offli
 RUN mvn --file build/solarvillage-model/pom.xml --batch-mode install -DskipTests
 
 COPY solarvillage-kie/pom.xml /build/solarvillage-kie/
-RUN mvn --file build/solarvillage-model/pom.xml --batch-mode dependency:go-offline
+RUN mvn --file build/solarvillage-kie/pom.xml --batch-mode dependency:go-offline
 RUN mvn --file build/solarvillage-kie/pom.xml --batch-mode install -DskipTests
 
 COPY solarvillage-model/src /build/solarvillage-model/src/
