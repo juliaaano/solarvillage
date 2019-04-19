@@ -5,7 +5,8 @@ Homework assignment lab on Red Hat Process Automation - RHPAM.
 ## Quick Start
 
 ```
-docker-compose up --force-recreate solarvillage
+docker-compose up --detach --force-recreate solarvillage
+docker-compose logs -f solarvillage
 ```
 
 Check the following:

@@ -26,4 +26,4 @@ RUN chown jboss -R /home/jboss/.m2/repository
 USER jboss
 
 ENV KIE_ADMIN_USER=user KIE_ADMIN_PWD=password
-ENV KIE_SERVER_CONTAINER_DEPLOYMENT=solarvillage=com.juliaaano:solarvillage-kie:1.0.0-SNAPSHOT
+ENV KIE_SERVER_CONTAINER_DEPLOYMENT=solarvillage=com.juliaaano:solarvillage-kie:1.1.0-SNAPSHOT

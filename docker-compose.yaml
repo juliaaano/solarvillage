@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   solarvillage:
-    image: juliaaano/solarvillage:1.0.0-SNAPSHOT
+    image: juliaaano/solarvillage:1.1.0-SNAPSHOT
     environment:
       KIE_ADMIN_USER: user
       KIE_ADMIN_PWD: password
@@ -24,8 +24,6 @@ services:
   postman:
     image: postman/newman:ubuntu
     command: run solarvillage.postman_collection.json --environment=docker.postman_environment.json
-    depends_on:
-      - solarvillage
     volumes:
       - type: bind
         source: ./postman
