@@ -230,6 +230,293 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "tasks assigned to sales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"task-id\", jsonData[\"task-summary\"][0][\"task-id\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/queries/tasks/instances/pot-owners?groups=sales",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"queries",
+						"tasks",
+						"instances",
+						"pot-owners"
+					],
+					"query": [
+						{
+							"key": "groups",
+							"value": "sales"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "claim task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/claimed?user={{user}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"containers",
+						"solarvillage",
+						"tasks",
+						"{{task-id}}",
+						"states",
+						"claimed"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "{{user}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/started?user={{user}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"containers",
+						"solarvillage",
+						"tasks",
+						"{{task-id}}",
+						"states",
+						"started"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "{{user}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "complete task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hoaApproval\": {\n        \"com.juliaaano.solarvillage.model.HoaApproval\": {\n            \"approved\": true,\n            \"comments\": \"All checks passed.\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/completed?user={{user}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"containers",
+						"solarvillage",
+						"tasks",
+						"{{task-id}}",
+						"states",
+						"completed"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "{{user}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
