@@ -14,6 +14,8 @@ public class Order implements java.io.Serializable {
 
 	private boolean approved;
 
+	private java.lang.String comments;
+
 	public Order() {
 	}
 
@@ -23,6 +25,12 @@ public class Order implements java.io.Serializable {
 		this.hoa = newOrder.isHoa();
 	}
 	
+	public Order(java.lang.String member, java.lang.String address, boolean hoa) {
+		this.member = member;
+		this.address = address;
+		this.hoa = hoa;
+	}
+
 	public void approve() {
 		this.approved = true;
 	}
@@ -59,12 +67,21 @@ public class Order implements java.io.Serializable {
 		this.approved = approved;
 	}
 
+	public java.lang.String getComments() {
+		return this.comments;
+	}
+
+	public void setComments(java.lang.String comments) {
+		this.comments = comments;
+	}
+
 	public Order(java.lang.String member, java.lang.String address,
-			boolean hoa, boolean approved) {
+			boolean hoa, boolean approved, java.lang.String comments) {
 		this.member = member;
 		this.address = address;
 		this.hoa = hoa;
 		this.approved = approved;
+		this.comments = comments;
 	}
 
 }
