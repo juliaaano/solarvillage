@@ -345,7 +345,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/claimed?user={{user}}",
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/claimed?user=batman",
 					"protocol": "http",
 					"host": [
 						"{{server}}"
@@ -365,7 +365,7 @@
 					"query": [
 						{
 							"key": "user",
-							"value": "{{user}}"
+							"value": "batman"
 						}
 					]
 				}
@@ -415,7 +415,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/started?user={{user}}",
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/started?user=batman",
 					"protocol": "http",
 					"host": [
 						"{{server}}"
@@ -435,7 +435,7 @@
 					"query": [
 						{
 							"key": "user",
-							"value": "{{user}}"
+							"value": "batman"
 						}
 					]
 				}
@@ -491,7 +491,7 @@
 					"raw": "{\n    \"hoaApproval\": {\n        \"com.juliaaano.solarvillage.model.HoaApproval\": {\n            \"approved\": true,\n            \"comments\": \"All checks passed.\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/completed?user={{user}}",
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/completed?user=batman",
 					"protocol": "http",
 					"host": [
 						"{{server}}"
@@ -511,7 +511,7 @@
 					"query": [
 						{
 							"key": "user",
-							"value": "{{user}}"
+							"value": "batman"
 						}
 					]
 				}

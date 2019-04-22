@@ -25,6 +25,9 @@ USER root
 RUN chown jboss -R /home/jboss/.m2/repository
 USER jboss
 
+RUN echo "batman=caaba233e7778bc95d0ad7e5c02640d0" >> /opt/eap/standalone/configuration/application-users.properties \
+ && echo "batman=sales" >> /opt/eap/standalone/configuration/application-roles.properties
+
 ENV KIE_SERVER_BYPASS_AUTH_USER=true
 ENV KIE_ADMIN_USER=user KIE_ADMIN_PWD=password
 ENV KIE_SERVER_CONTAINER_DEPLOYMENT=solarvillage=com.juliaaano:solarvillage-kie:1.1.0-SNAPSHOT

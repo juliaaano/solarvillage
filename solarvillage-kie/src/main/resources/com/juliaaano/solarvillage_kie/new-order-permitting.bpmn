@@ -220,7 +220,7 @@
       <bpmn2:dataInputAssociation id="_dgXOQWUDEem6WJ9wDq6xIg">
         <bpmn2:targetRef>_D283245E-7D86-45B6-9823-7A3E526E3936_GroupIdInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_dgXOQmUDEem6WJ9wDq6xIg">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_dgXOQ2UDEem6WJ9wDq6xIg"><![CDATA[sales,kiemgmt]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_dgXOQ2UDEem6WJ9wDq6xIg"><![CDATA[sales]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_dgXORGUDEem6WJ9wDq6xIg">_D283245E-7D86-45B6-9823-7A3E526E3936_GroupIdInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
