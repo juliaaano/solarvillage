@@ -253,13 +253,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "username",
-							"value": "{{user}}",
+							"key": "password",
+							"value": "{{password}}",
 							"type": "string"
 						},
 						{
-							"key": "password",
-							"value": "{{password}}",
+							"key": "username",
+							"value": "{{user}}",
 							"type": "string"
 						}
 					]
@@ -303,6 +303,161 @@
 			"response": []
 		},
 		{
+			"name": "reassign task to executives",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							"setTimeout(function(){}, 6000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"groups\": [\n        \"executives\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/admin/containers/solarvillage/tasks/{{task-id}}/reassignments?expiresAt=5s&whenNotStarted=true&whenNotCompleted=false",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"admin",
+						"containers",
+						"solarvillage",
+						"tasks",
+						"{{task-id}}",
+						"reassignments"
+					],
+					"query": [
+						{
+							"key": "expiresAt",
+							"value": "5s"
+						},
+						{
+							"key": "whenNotStarted",
+							"value": "true"
+						},
+						{
+							"key": "whenNotCompleted",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks assigned to executives",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"task-id\", jsonData[\"task-summary\"][0][\"task-id\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/queries/tasks/instances/pot-owners?groups=executives",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"queries",
+						"tasks",
+						"instances",
+						"pot-owners"
+					],
+					"query": [
+						{
+							"key": "groups",
+							"value": "executives"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "claim task",
 			"event": [
 				{
@@ -321,13 +476,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "username",
-							"value": "{{user}}",
+							"key": "password",
+							"value": "{{password}}",
 							"type": "string"
 						},
 						{
-							"key": "password",
-							"value": "{{password}}",
+							"key": "username",
+							"value": "{{user}}",
 							"type": "string"
 						}
 					]
@@ -391,13 +546,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "username",
-							"value": "{{user}}",
+							"key": "password",
+							"value": "{{password}}",
 							"type": "string"
 						},
 						{
-							"key": "password",
-							"value": "{{password}}",
+							"key": "username",
+							"value": "{{user}}",
 							"type": "string"
 						}
 					]
@@ -491,7 +646,7 @@
 					"raw": "{\n    \"hoaApproval\": {\n        \"com.juliaaano.solarvillage.model.HoaApproval\": {\n            \"approved\": true,\n            \"comments\": \"All checks passed.\"\n        }\n    }\n}"
 				},
 				"url": {
-					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/completed?user=batman",
+					"raw": "http://{{server}}:{{port}}/services/rest/server/containers/solarvillage/tasks/{{task-id}}/states/completed?user=buggy",
 					"protocol": "http",
 					"host": [
 						"{{server}}"
@@ -511,7 +666,7 @@
 					"query": [
 						{
 							"key": "user",
-							"value": "batman"
+							"value": "buggy"
 						}
 					]
 				}
