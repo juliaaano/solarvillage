@@ -12,6 +12,7 @@ docker-compose logs --follow solarvillage
 Check the following:
 * http://localhost:18080/docs/
 * http://localhost:18080/services/rest/server
+* User: **user** | Password: **password**
 
 ### End to end tests
 
@@ -33,7 +34,7 @@ Import the files from ./postman folder. Verify the collection(s) is there and se
 
 Import this project in Business Central to use the provided GUI to run the business process.
 
-> Tested with BC and KIE Server 7.3.0.GA, OpenJDK version 1.8.0_202 and Apache Maven 3.6.1.
+> Tested with BC/KIE Server 7.3.0.GA, OpenJDK version 1.8.0_202 and Apache Maven 3.6.1.
 
 #### Import project
 
