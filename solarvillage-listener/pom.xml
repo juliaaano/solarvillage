@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.juliaaano</groupId>
-    <artifactId>solarvillage-model</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <artifactId>solarvillage-listener</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Solar Village Model</name>
-    <description>Data model classes for the Solar Village project.</description>
+    <name>Solar Village Listener</name>
+    <description>Listener classes for the Solar Village project.</description>
     <url>https://github.com/juliaaano/solarvillage</url>
 
     <developers>
@@ -30,6 +30,13 @@
     </properties>
 
     <dependencies>
+
+     <dependency>
+       <groupId>org.kie</groupId>
+       <artifactId>kie-api</artifactId>
+       <version>7.18.0.Final-redhat-00002</version>
+       <scope>provided</scope>
+     </dependency>
 
         <!-- Test -->
 
@@ -67,5 +74,24 @@
         </plugins>
 
     </build>
+
+   <repositories>
+     <repository>
+       <id>redhat-ga-repository</id>
+       <url>https://maven.repository.redhat.com/ga</url>
+       <releases/>
+       <snapshots>
+         <enabled>false</enabled>
+       </snapshots>
+     </repository>
+     <repository>
+       <id>redhat-ea-repository</id>
+       <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+       <releases/>
+       <snapshots>
+         <enabled>false</enabled>
+       </snapshots>
+     </repository>
+   </repositories>
 
 </project>
