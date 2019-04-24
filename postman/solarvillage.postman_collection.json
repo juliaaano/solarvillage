@@ -458,6 +458,90 @@
 			"response": []
 		},
 		{
+			"name": "notification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936e2c0c-e00c-4020-8b2e-1f68bc6daf7b",
+						"exec": [
+							"setTimeout(function(){}, 2000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"test@jbpm.org\",\n    \"reply-to\": \"no-reply@jbpm.org\",\n    \"users\": [\n        \"batman\"\n    ],\n    \"groups\": [\n        \"executives\"\n    ],\n    \"subject\": \"reminder\",\n    \"body\": \"my test content\"\n}"
+				},
+				"url": {
+					"raw": "http://{{server}}:{{port}}/services/rest/server/admin/containers/solarvillage/tasks/{{task-id}}/notifications?expiresAt=2s&whenNotStarted=true&whenNotCompleted=false",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"services",
+						"rest",
+						"server",
+						"admin",
+						"containers",
+						"solarvillage",
+						"tasks",
+						"{{task-id}}",
+						"notifications"
+					],
+					"query": [
+						{
+							"key": "expiresAt",
+							"value": "2s"
+						},
+						{
+							"key": "whenNotStarted",
+							"value": "true"
+						},
+						{
+							"key": "whenNotCompleted",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "claim task",
 			"event": [
 				{
