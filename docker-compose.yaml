@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   solarvillage:
-    image: juliaaano/solarvillage:1.2.0-SNAPSHOT
+    image: juliaaano/solarvillage:1.3.0-SNAPSHOT
     environment:
       KIE_ADMIN_USER: user
       KIE_ADMIN_PWD: password
