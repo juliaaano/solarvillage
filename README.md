@@ -6,6 +6,7 @@ Homework assignment lab on Red Hat Process Automation - RHPAM.
 
 ```
 docker-compose up --detach --force-recreate solarvillage
+docker-compose run --rm mock
 docker-compose logs --follow solarvillage
 ```
 
@@ -14,7 +15,7 @@ Check the following:
 * http://localhost:18080/services/rest/server
 * User: **user** | Password: **password**
 
-### End to end tests
+#### End to end tests
 
 Once the system is up and running (previous steps):
 
@@ -28,11 +29,26 @@ It is possible to import the http requests into [Postman](https://www.getpostman
 
 This way, you can manually run each of the HTTP requests.
 
-Import the files from ./postman folder. Verify the collection(s) is there and select the "localhost" environment.
+Import the files from ./postman folder. Verify the collection(s) and select the "localhost" environment.
+
+## Docker
+
+Build the docker container from sources locally:
+
+```
+docker build --tag juliaaano/solarvillage:local .
+```
+
+Run the container:
+
+```
+docker run --rm --name solarvillage --detach --publish 18080:8080 juliaaano/solarvillage:local
+docker logs --follow solarvillage
+```
 
 ## Business Central
 
-Import this project in Business Central to use the provided GUI to run the business process.
+This is the 'manual' way to play with this project. Use Business Central interact with the business process.
 
 > Tested with BC/KIE Server 7.3.0.GA, OpenJDK version 1.8.0_202 and Apache Maven 3.6.1.
 
@@ -48,17 +64,11 @@ mvn --file solarvillage-model/pom.xml clean install
 mvn --file solarvillage-listener/pom.xml clean install
 ```
 
-## Docker
+#### Run/setup mocks
 
-Build the docker container from sources locally:
-
-```
-docker build --tag juliaaano/solarvillage:local .
-```
-
-Run the container:
+Run the mockserver and setup the expectations for the electrical and structural government services.
 
 ```
-docker run --rm --name solarvillage --detach --publish 18080:8080 juliaaano/solarvillage:local
-docker logs --follow solarvillage
+docker-compose up --detach --force-recreate mockserver
+docker-compose run --rm mock
 ```
