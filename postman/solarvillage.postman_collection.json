@@ -756,6 +756,260 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "sleep",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acf954e0-bf44-4d7c-acdd-e98b310115a9",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/sleep",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"sleep"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clear electrical permit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"path\": \"/services/electrical-permit\"\n}"
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/clear?type=EXPECTATIONS",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"mockserver",
+						"clear"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "EXPECTATIONS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expectation electrical APPROVED",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/electrical-permit\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"APPROVED\\\"}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"mockserver",
+						"expectation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sleep",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acf954e0-bf44-4d7c-acdd-e98b310115a9",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/sleep",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"sleep"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clear structural permit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"path\": \"/services/structural-permit\"\n}"
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/clear?type=EXPECTATIONS",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"mockserver",
+						"clear"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "EXPECTATIONS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expectation structural APPROVED",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/structural-permit\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"APPROVED\\\"}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
+					"protocol": "http",
+					"host": [
+						"{{mockserver_host}}"
+					],
+					"port": "{{mockserver_port}}",
+					"path": [
+						"mockserver",
+						"expectation"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {

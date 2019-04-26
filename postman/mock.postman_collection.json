@@ -69,7 +69,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/electrical-permit\",\n        \"method\": \"POST\",\n        \"body\": {\n            \"type\": \"JSON\",\n            \"json\": \"{\\\"data\\\":\\\"testingData\\\"}\",\n            \"matchType\": \"STRICT\"\n        }\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"IN_PROGRESS\\\"}\"\n    }\n}"
+					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/electrical-permit\",\n        \"method\": \"POST\",\n        \"body\": {\n            \"type\": \"JSON\",\n            \"json\": \"{\\\"data\\\":\\\"testingData\\\"}\",\n            \"matchType\": \"STRICT\"\n        }\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"SUBMITTED\\\"}\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
@@ -132,96 +132,6 @@
 			"response": []
 		},
 		{
-			"name": "GET electrical APPROVED",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
-						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/electrical-permit/approved\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"APPROVED\\\"}\"\n    }\n}"
-				},
-				"url": {
-					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
-					"protocol": "http",
-					"host": [
-						"{{mockserver_host}}"
-					],
-					"port": "{{mockserver_port}}",
-					"path": [
-						"mockserver",
-						"expectation"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET electrical DENIED",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
-						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/electrical-permit/denied\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"DENIED\\\"}\"\n    }\n}"
-				},
-				"url": {
-					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
-					"protocol": "http",
-					"host": [
-						"{{mockserver_host}}"
-					],
-					"port": "{{mockserver_port}}",
-					"path": [
-						"mockserver",
-						"expectation"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "POST structural permit",
 			"event": [
 				{
@@ -249,52 +159,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/structural-permit\",\n        \"method\": \"POST\",\n        \"body\": {\n            \"type\": \"JSON\",\n            \"json\": \"{\\\"data\\\":\\\"testingData\\\"}\",\n            \"matchType\": \"STRICT\"\n        }\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"IN_PROGRESS\\\"}\"\n    }\n}"
-				},
-				"url": {
-					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
-					"protocol": "http",
-					"host": [
-						"{{mockserver_host}}"
-					],
-					"port": "{{mockserver_port}}",
-					"path": [
-						"mockserver",
-						"expectation"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET structural APPROVED",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
-						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/structural-permit/approved\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"APPROVED\\\"}\"\n    }\n}"
+					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/structural-permit\",\n        \"method\": \"POST\",\n        \"body\": {\n            \"type\": \"JSON\",\n            \"json\": \"{\\\"data\\\":\\\"testingData\\\"}\",\n            \"matchType\": \"STRICT\"\n        }\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"SUBMITTED\\\"}\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
@@ -357,16 +222,14 @@
 			"response": []
 		},
 		{
-			"name": "GET structural DENIED",
+			"name": "sleep mockserver",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "30898b7e-20d4-41bf-9d0b-5a83de4262d8",
+						"id": "457d8728-e91c-4009-a5e3-b3dae120118d",
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -384,7 +247,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/services/structural-permit/denied\",\n        \"method\": \"GET\"\n    },\n    \"httpResponse\": {\n        \"statusCode\": 200,\n        \"body\": \"{\\\"status\\\":\\\"DENIED\\\"}\"\n    }\n}"
+					"raw": "{\n    \"httpRequest\": {\n        \"path\": \"/sleep\"\n    },\n    \"httpResponse\": {\n        \"body\": \"response delayed by mockserver\",\n        \"delay\": {\n            \"timeUnit\": \"SECONDS\",\n            \"value\": 7\n        }\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{mockserver_host}}:{{mockserver_port}}/mockserver/expectation",
